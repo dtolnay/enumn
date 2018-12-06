@@ -1,6 +1,6 @@
 [package]
 name = "enumn"
-version = "0.0.0"
+version = "0.1.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 license = "MIT OR Apache-2.0"
 description = "Convert number to enum"
