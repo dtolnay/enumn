@@ -2,6 +2,11 @@
 name = "enumn"
 version = "0.0.0"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
+license = "MIT OR Apache-2.0"
+description = "Convert number to enum"
+repository = "https://github.com/dtolnay/enumn"
+documentation = "https://docs.rs/enumn"
+readme = "README.md"
 
 [lib]
 proc-macro = true
