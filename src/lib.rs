@@ -49,6 +49,10 @@
 //!
 //! ```rust
 //! #[derive(enumn::N)]
+//! # enum E0 {
+//! #     IGNORE
+//! # }
+//! #
 //! #[repr(u8)]
 //! enum E {
 //!     /* ... */
