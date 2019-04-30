@@ -19,9 +19,9 @@
 //! # Example
 //!
 //! ```rust
-//! extern crate enumn;
+//! use enumn::N;
 //!
-//! #[derive(PartialEq, Debug, enumn::N)]
+//! #[derive(PartialEq, Debug, N)]
 //! enum Status {
 //!     LegendaryTriumph,
 //!     QualifiedSuccess,
@@ -98,9 +98,6 @@
 //! Here `Letter::n(65)` would return `Some(Letter::A)`.
 
 extern crate proc_macro;
-extern crate proc_macro2;
-extern crate quote;
-extern crate syn;
 
 use proc_macro::TokenStream;
 use quote::quote;

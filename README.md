@@ -22,9 +22,9 @@ detail below.
 ## Example
 
 ```rust
-extern crate enumn;
+use enumn::N;
 
-#[derive(PartialEq, Debug, enumn::N)]
+#[derive(PartialEq, Debug, N)]
 enum Status {
     LegendaryTriumph,
     QualifiedSuccess,
