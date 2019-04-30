@@ -5,7 +5,7 @@
 //!
 //! The generated function is named `n` and has the following signature:
 //!
-//! ```rust
+//! ```
 //! # const IGNORE: &str = stringify! {
 //! impl YourEnum {
 //!     pub fn n(value: Repr) -> Option<Self>;
@@ -18,7 +18,7 @@
 //!
 //! # Example
 //!
-//! ```rust
+//! ```
 //! use enumn::N;
 //!
 //! #[derive(PartialEq, Debug, N)]
@@ -47,7 +47,7 @@
 //! attribute. If a `repr` is specified, the input to `n` will be required to be
 //! of that type.
 //!
-//! ```rust
+//! ```
 //! #[derive(enumn::N)]
 //! # enum E0 {
 //! #     IGNORE
@@ -71,7 +71,7 @@
 //! On the other hand if no `repr` is specified then we get a signature that is
 //! generic over a variety of possible types.
 //!
-//! ```rust
+//! ```
 //! # enum E {}
 //! #
 //! impl E {
@@ -87,7 +87,7 @@
 //! The conversion respects explictly specified enum discriminants. Consider
 //! this enum:
 //!
-//! ```rust
+//! ```
 //! #[derive(enumn::N)]
 //! enum Letter {
 //!     A = 65,
