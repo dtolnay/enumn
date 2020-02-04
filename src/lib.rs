@@ -100,8 +100,8 @@
 extern crate proc_macro;
 
 use proc_macro::TokenStream;
-use quote::{quote, ToTokens};
-use syn::{parse_macro_input, Data, DeriveInput, Error, Fields, Meta, NestedMeta};
+use quote::quote;
+use syn::{parse_macro_input, Data, DeriveInput, Error, Fields, Ident};
 
 #[proc_macro_derive(N)]
 pub fn derive(input: TokenStream) -> TokenStream {
@@ -126,16 +126,14 @@ pub fn derive(input: TokenStream) -> TokenStream {
     // Parse repr attribute like #[repr(u16)].
     let mut repr = None;
     for attr in input.attrs {
-        if let Ok(Meta::List(list)) = attr.parse_meta() {
-            if list.path.is_ident("repr") {
-                if let Some(NestedMeta::Meta(Meta::Path(path))) = list.nested.into_iter().next() {
-                    match path.to_token_stream().to_string().as_str() {
-                        "u8" | "u16" | "u32" | "u64" | "u128" | "usize" | "i8" | "i16" | "i32"
-                        | "i64" | "i128" | "isize" => {
-                            repr = Some(attr.tokens);
-                        }
-                        _ => {}
+        if attr.path.is_ident("repr") {
+            if let Ok(name) = attr.parse_args::<Ident>() {
+                match name.to_string().as_str() {
+                    "u8" | "u16" | "u32" | "u64" | "u128" | "usize" | "i8" | "i16" | "i32"
+                    | "i64" | "i128" | "isize" => {
+                        repr = Some(quote!(#name));
                     }
+                    _ => {}
                 }
             }
         }
