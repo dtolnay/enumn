@@ -179,6 +179,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
         impl #ident {
             pub #signature -> Option<Self> {
                 struct discriminant;
+                #[allow(non_upper_case_globals)]
                 impl discriminant {
                     #(#declare_discriminants)*
                 }
