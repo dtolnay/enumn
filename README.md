@@ -1,7 +1,7 @@
 Convert number to enum
 ======================
 
-[![Build Status](https://api.travis-ci.org/dtolnay/enumn.svg?branch=master)](https://travis-ci.org/dtolnay/enumn)
+[![Build Status](https://img.shields.io/github/workflow/status/dtolnay/enumn/CI/master)](https://github.com/dtolnay/enumn/actions?query=branch%3Amaster)
 [![Latest Version](https://img.shields.io/crates/v/enumn.svg)](https://crates.io/crates/enumn)
 [![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/enumn)
 
