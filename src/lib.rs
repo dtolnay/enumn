@@ -105,7 +105,7 @@
 //!
 //! Here `Letter::n(65)` would return `Some(Letter::A)`.
 
-#![allow(clippy::needless_doctest_main)]
+#![allow(clippy::needless_doctest_main, clippy::single_match_else)]
 
 extern crate proc_macro;
 
