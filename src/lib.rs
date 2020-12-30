@@ -105,6 +105,8 @@
 //!
 //! Here `Letter::n(65)` would return `Some(Letter::A)`.
 
+#![allow(clippy::needless_doctest_main)]
+
 extern crate proc_macro;
 
 use proc_macro::TokenStream;
