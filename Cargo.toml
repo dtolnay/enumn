@@ -2,13 +2,13 @@
 name = "enumn"
 version = "0.1.4"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
-edition = "2018"
-rust-version = "1.31"
-license = "MIT OR Apache-2.0"
 description = "Convert number to enum"
-repository = "https://github.com/dtolnay/enumn"
 documentation = "https://docs.rs/enumn"
+edition = "2018"
+license = "MIT OR Apache-2.0"
 readme = "README.md"
+repository = "https://github.com/dtolnay/enumn"
+rust-version = "1.31"
 
 [lib]
 proc-macro = true
