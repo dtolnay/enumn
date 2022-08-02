@@ -6,6 +6,7 @@ categories = ["rust-patterns", "no-std"]
 description = "Convert number to enum"
 documentation = "https://docs.rs/enumn"
 edition = "2018"
+keywords = ["enum", "integer"]
 license = "MIT OR Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/dtolnay/enumn"
