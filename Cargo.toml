@@ -1,6 +1,6 @@
 [package]
 name = "enumn"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 categories = ["rust-patterns", "no-std"]
 description = "Convert number to enum"
