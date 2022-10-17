@@ -2,7 +2,7 @@
 use enumn::N;
 
 // Test an empty enum
-#[derive(Debug, N, PartialEq, Eq)]
+#[derive(Debug, N, PartialEq)]
 enum EmptyEnum {}
 
 #[test]
@@ -13,7 +13,7 @@ fn test_empty() {
 }
 
 // Test a simple enum
-#[derive(Debug, N, PartialEq, Eq)]
+#[derive(Debug, N, PartialEq)]
 enum SimpleEnum {
     Case0,
     Case1,
@@ -30,7 +30,7 @@ fn test_simple() {
 }
 
 // Test an enum with repr(u8)
-#[derive(Debug, N, PartialEq, Eq)]
+#[derive(Debug, N, PartialEq)]
 #[repr(u8)]
 enum SimpleEnumWithRepr {
     Case0,
@@ -47,7 +47,7 @@ fn test_simple_with_repr() {
 }
 
 // Test an enum with discriminant
-#[derive(Debug, N, PartialEq, Eq)]
+#[derive(Debug, N, PartialEq)]
 enum EnumWithDiscriminant {
     A = 10,
     B = 290,
@@ -66,7 +66,7 @@ fn test_discriminant() {
 }
 
 // Test an enum with discriminant and implicit values
-#[derive(Debug, N, PartialEq, Eq)]
+#[derive(Debug, N, PartialEq)]
 enum MixedDiscriminant {
     A = 10,
     B, // B will implicitly be set to 11
