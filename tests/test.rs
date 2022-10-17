@@ -1,7 +1,4 @@
 
-#[cfg(test)]
-#[macro_use]
-mod tests {
     use enumn::N;
 
     // Test an empty enum
@@ -86,6 +83,3 @@ mod tests {
         assert_eq!(MixedDiscriminant::n(1), None);
         assert_eq!(MixedDiscriminant::n(81), None);
     }
-
-
-}   
