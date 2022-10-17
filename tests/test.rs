@@ -1,4 +1,3 @@
-
 use enumn::N;
 
 // Test an empty enum
