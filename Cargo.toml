@@ -2,7 +2,7 @@
 name = "enumn"
 version = "0.1.8"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
-categories = ["rust-patterns", "no-std"]
+categories = ["rust-patterns", "no-std", "no-std::no-alloc"]
 description = "Convert number to enum"
 documentation = "https://docs.rs/enumn"
 edition = "2018"
