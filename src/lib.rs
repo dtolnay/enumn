@@ -191,6 +191,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
     TokenStream::from(quote! {
         impl #ident {
             pub #signature -> Option<Self> {
+                #[allow(non_camel_case_types)]
                 struct discriminant;
                 #[allow(non_upper_case_globals)]
                 impl discriminant {
