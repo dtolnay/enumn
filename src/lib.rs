@@ -105,7 +105,7 @@
 //!
 //! Here `Letter::n(65)` would return `Some(Letter::A)`.
 
-#![doc(html_root_url = "https://docs.rs/enumn/0.1.12")]
+#![doc(html_root_url = "https://docs.rs/enumn/0.1.13")]
 #![allow(
     clippy::missing_panics_doc,
     clippy::needless_doctest_main,
