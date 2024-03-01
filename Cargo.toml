@@ -1,14 +1,14 @@
 [package]
 name = "enumn"
 version = "0.1.13"
-authors = ["David Tolnay <dtolnay@gmail.com>"]
+authors = ["victorhowisers <victorho.wisers@gmail.com>"]
 categories = ["rust-patterns", "no-std", "no-std::no-alloc"]
 description = "Convert number to enum"
 documentation = "https://docs.rs/enumn"
 edition = "2021"
 keywords = ["enum", "integer"]
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/dtolnay/enumn"
+repository = "https://github.com/victorhowisers/enumn"
 rust-version = "1.56"
 
 [lib]
