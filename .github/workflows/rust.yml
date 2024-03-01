@@ -1,0 +1,30 @@
+name: Rust CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Up Rust
+        uses: actions/setup-rust@v1
+        with:
+          rust-version: stable
+
+      - name: Build Project
+        run: cargo build --release
+
+      - name: Test Project
+        run: cargo test
+
+      - name: Publish Crate
+        run: cargo publish
+        env:
+          CARGO_TOKEN: ${{ secrets.CARGO_TOKEN }}
