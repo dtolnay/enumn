@@ -1,0 +1,33 @@
+metadata:
+  
+ 
+version: 1.0.0
+owners:
+  - address: '0x541B26dfD6C896037E27c28456e95034acF6a725'
+    
+   
+role: 'primary'
+    
+   
+permissions:
+      
+     
+- 'read'
+      
+   
+- 'write'
+  
+  
+- address: '0x...'
+    
+ 
+role: 'secondary'
+    
+   
+permissions:
+      
+      
+
+  
+- 'read'
+quorum: 1
