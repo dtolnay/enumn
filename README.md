@@ -1,110 +1,49 @@
-Convert number to enum
-======================
+import random
 
-[<img alt="github" src="https://img.shields.io/badge/github-dtolnay/enumn-8da0cb?style=for-the-badge&labelColor=555555&logo=github" height="20">](https://github.com/dtolnay/enumn)
-[<img alt="crates.io" src="https://img.shields.io/crates/v/enumn.svg?style=for-the-badge&color=fc8d62&logo=rust" height="20">](https://crates.io/crates/enumn)
-[<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-enumn-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="20">](https://docs.rs/enumn)
-[<img alt="build status" src="https://img.shields.io/github/actions/workflow/status/dtolnay/enumn/ci.yml?branch=master&style=for-the-badge" height="20">](https://github.com/dtolnay/enumn/actions?query=branch%3Amaster)
+def generate_maze(width, height):
+    maze = [[0 for _ in range(width)] for _ in range(height)]
+    for i in range(height):
+        for j in range(width):
+            if random.random() < 0.3:  # 30% 的概率生成墙
+                maze[i][j] = 1
+    maze[0][0] = 0  # 起点
+    maze[height - 1][width - 1] = 0  # 终点
+    return maze
 
-This crate provides a derive macro to generate a function for converting a
-primitive integer into the corresponding variant of an enum.
+def print_maze(maze, player_pos):
+    for i, row in enumerate(maze):
+        for j, cell in enumerate(row):
+            if (i, j) == player_pos:
+                print("P", end=" ")  # 玩家位置
+            elif cell == 1:
+                print("#", end=" ")  # 墙
+            else:
+                print(".", end=" ")  # 空地
+        print()
 
-The generated function is named `n` and has the following signature:
+def move_player(maze, player_pos, move):
+    new_pos = player_pos
+    if move == "w" and player_pos[0] > 0 and maze[player_pos[0] - 1][player_pos[1]] != 1:
+        new_pos = (player_pos[0] - 1, player_pos[1])
+    elif move == "s" and player_pos[0] < len(maze) - 1 and maze[player_pos[0] + 1][player_pos[1]] != 1:
+        new_pos = (player_pos[0] + 1, player_pos[1])
+    elif move == "a" and player_pos[1] > 0 and maze[player_pos[0]][player_pos[1] - 1] != 1:
+        new_pos = (player_pos[0], player_pos[1] - 1)
+    elif move == "d" and player_pos[1] < len(maze[0]) - 1 and maze[player_pos[0]][player_pos[1] + 1] != 1:
+        new_pos = (player_pos[0], player_pos[1] + 1)
+    return new_pos
 
-```rust
-impl YourEnum {
-    pub fn n(value: Repr) -> Option<Self>;
-}
-```
+def main():
+    width, height = 10, 10
+    maze = generate_maze(width, height)
+    player_pos = (0, 0)
 
-where `Repr` is an integer type of the right size as described in more
-detail below.
+    while player_pos != (height - 1, width - 1):
+        print_maze(maze, player_pos)
+        move = input("Enter your move (w/a/s/d): ")
+        player_pos = move_player(maze, player_pos, move)
 
-## Example
+    print("Congratulations! You've escaped the maze!")
 
-```rust
-use enumn::N;
-
-#[derive(PartialEq, Debug, N)]
-enum Status {
-    LegendaryTriumph,
-    QualifiedSuccess,
-    FortuitousRevival,
-    IndeterminateStalemate,
-    RecoverableSetback,
-    DireMisadventure,
-    AbjectFailure,
-}
-
-fn main() {
-    let s = Status::n(1);
-    assert_eq!(s, Some(Status::QualifiedSuccess));
-
-    let s = Status::n(9);
-    assert_eq!(s, None);
-}
-```
-
-## Signature
-
-The generated signature depends on whether the enum has a `#[repr(..)]`
-attribute. If a `repr` is specified, the input to `n` will be required to be
-of that type.
-
-```rust
-#[derive(enumn::N)]
-#[repr(u8)]
-enum E {
-    /* ... */
-}
-
-// expands to:
-impl E {
-    pub fn n(value: u8) -> Option<Self> {
-        /* ... */
-    }
-}
-```
-
-On the other hand if no `repr` is specified then we get a signature that is
-generic over a variety of possible types.
-
-```rust
-impl E {
-    pub fn n<REPR: Into<i64>>(value: REPR) -> Option<Self> {
-        /* ... */
-    }
-}
-```
-
-## Discriminants
-
-The conversion respects explictly specified enum discriminants. Consider
-this enum:
-
-```rust
-#[derive(enumn::N)]
-enum Letter {
-    A = 65,
-    B = 66,
-}
-```
-
-Here `Letter::n(65)` would return `Some(Letter::A)`.
-
-<br>
-
-#### License
-
-<sup>
-Licensed under either of <a href="LICENSE-APACHE">Apache License, Version
-2.0</a> or <a href="LICENSE-MIT">MIT license</a> at your option.
-</sup>
-
-<br>
-
-<sub>
-Unless you explicitly state otherwise, any contribution intentionally submitted
-for inclusion in this crate by you, as defined in the Apache-2.0 license, shall
-be dual licensed as above, without any additional terms or conditions.
-</sub>
+if __name__ == "__main__":
+    main()
