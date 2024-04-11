@@ -79,7 +79,7 @@ impl E {
 
 ## Discriminants
 
-The conversion respects explictly specified enum discriminants. Consider
+The conversion respects explicitly specified enum discriminants. Consider
 this enum:
 
 ```rust
