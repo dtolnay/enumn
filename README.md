@@ -17,8 +17,8 @@ impl YourEnum {
 }
 ```
 
-where `Repr` is an integer type of the right size as described in more
-detail below.
+where `Repr` is an integer type of the right size as described in more detail
+below.
 
 ## Example
 
@@ -48,8 +48,8 @@ fn main() {
 ## Signature
 
 The generated signature depends on whether the enum has a `#[repr(..)]`
-attribute. If a `repr` is specified, the input to `n` will be required to be
-of that type.
+attribute. If a `repr` is specified, the input to `n` will be required to be of
+that type.
 
 ```rust
 #[derive(enumn::N)]
@@ -79,8 +79,8 @@ impl E {
 
 ## Discriminants
 
-The conversion respects explicitly specified enum discriminants. Consider
-this enum:
+The conversion respects explicitly specified enum discriminants. Consider this
+enum:
 
 ```rust
 #[derive(enumn::N)]
