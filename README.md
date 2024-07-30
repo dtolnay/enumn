@@ -7,7 +7,8 @@ Convert number to enum
 [<img alt="build status" src="https://img.shields.io/github/actions/workflow/status/dtolnay/enumn/ci.yml?branch=master&style=for-the-badge" height="20">](https://github.com/dtolnay/enumn/actions?query=branch%3Amaster)
 
 This crate provides a derive macro to generate a function for converting a
-primitive integer into the corresponding variant of an enum.
+primitive integer into the corresponding variant of an enum. _(This project is
+no longer maintained.)_
 
 The generated function is named `n` and has the following signature:
 
